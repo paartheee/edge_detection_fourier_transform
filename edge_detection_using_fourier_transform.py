@@ -2,7 +2,7 @@ import cv2
 from matplotlib import pyplot as plt
 import numpy as np
 
-imgUMat = cv2.imread('E:\\parthi.jpg', 0)  # load an image
+imgUMat = cv2.imread('E:\\parthi.jpg', 0)  
 
 dft = cv2.dft(np.float32(imgUMat), flags=cv2.DFT_COMPLEX_OUTPUT)
 dft_shift = np.fft.fftshift(dft)
@@ -45,7 +45,6 @@ mask[mask_area] = 1
 
 fshift = dft_shift * mask
 
-fshift_mask_mag = 20 * np.log(cv2.magnitude(fshift[:, :, 0], fshift[:, :, 1]))
 
 f_ishift = np.fft.ifftshift(fshift)
 
